@@ -1,0 +1,28 @@
+@import url('/style.css');
+.workspace{max-width:1150px;margin:auto;padding:35px 5% 70px}
+.workspace h1{font:500 42px/1.15 'Manrope',sans-serif;letter-spacing:-1.5px}
+.workspace h2{font-size:27px;margin:12px 0 20px}
+.workspace p{line-height:1.7}
+.workspace nav{flex-wrap:wrap}
+.workspace .lead{color:var(--muted);max-width:720px}
+.panel{background:white;border:1px solid #dfe4da;border-radius:14px;padding:25px;margin:25px 0}
+.property-form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.property-form label{display:grid;gap:7px;font-size:13px;font-weight:600;min-width:0}
+.property-form input,.property-form select,.property-form textarea,.review-note{font:inherit;border:1px solid #bcc9bb;border-radius:7px;padding:12px;width:100%;background:white;color:var(--ink)}
+.property-form .wide{grid-column:1/-1}
+.property-form .consent{display:flex;align-items:flex-start;font-weight:400;line-height:1.6}
+.property-form .consent input{width:20px;height:20px;flex-shrink:0;margin-top:3px}
+button:disabled{opacity:.6;cursor:wait}
+.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.secondary{border:1px solid #b7c6b5;background:white;color:var(--green);padding:12px 18px;border-radius:7px}
+.notice{padding:15px 18px;border-radius:8px;background:#edf0e2;border:1px solid #b9c99c;overflow-wrap:anywhere}
+.error{background:#fff1ed;border-color:#ce806a;color:#833220}
+.listing-panel{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.listing-panel img,.photo-preview{width:100%;height:160px;object-fit:cover;border-radius:8px;background:#dbe2d4}
+.photo-preview{max-width:320px}
+.listing-panel h3{margin:4px 0;font-size:21px}
+.listing-panel dl{display:grid;grid-template-columns:auto 1fr;gap:7px 15px;font-size:13px}
+.listing-panel dt{font-weight:600}.listing-panel dd{margin:0;overflow-wrap:anywhere}
+.review-note{display:block;margin:10px 0}
+.status{display:inline-block;background:#edf0e2;border-radius:30px;padding:5px 10px;font-size:12px}
+@media(max-width:650px){.workspace h1{font-size:34px}.property-form,.listing-panel{grid-template-columns:1fr}.property-form .wide{grid-column:auto}.panel{padding:18px}.listing-panel img{height:210px}}
