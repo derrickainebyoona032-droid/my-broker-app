@@ -1,28 +1,27 @@
-# Online Broker Uganda — first version
+# Online Broker Uganda
 
-A responsive, buildless rental directory. Open `dist/index.html` or serve `dist/` with a static web server. For a local preview with Node, from this folder run `node preview.cjs`, then visit http://127.0.0.1:4173.
+A rental directory with public browsing, owner self-service submissions, photo uploads and operator review.
 
 ## Included
-- Six clearly marked fictional example listings across Uganda.
-- Location search, monthly UGX budget and bedroom filters, price sorting and empty results.
-- Property detail dialogs with shareable URL fragments, amenities, floor area and tenancy information.
-- Saved homes stored in the visitor's browser; no account required.
-- Owner contact flow for real records: prepare a message, then open WhatsApp, telephone or email. Visitors review and send in their own app. No messages or visitor contact details are stored by the site.
-- Responsive layouts, labeled forms, keyboard focus indicators, native modal dialogs and renting guidance.
+- Location, monthly UGX budget and bedroom filters, price sorting, saved homes and shareable property dialogs.
+- Six clearly labeled fictional examples, retained until actual owner-approved properties are provided.
+- Sign in with ChatGPT to submit and manage properties.
+- Actual photo upload (JPEG/PNG/WebP, up to 5 MB) to R2; durable property records in D1.
+- Operator approval or changes-requested feedback before publication.
+- Owner edits return a property to review; withdrawal removes it from the public directory immediately.
+- Availability, last-confirmed date, deposit, advance rent, utilities and public owner contact.
+- Direct enquiry preparation through WhatsApp, telephone or email. Visitors review and send in their own app.
+- Support WhatsApp: 0701897800 (+256701897800). This is support, separate from each listing's owner contact.
 
-## Add actual properties
-Edit `dist/listings.js`. Replace fictional records with owner-approved details and photos. Each record needs a unique URL-safe `id`, title, area, city, type, numeric beds/baths/rent/size, amenities array, advance terms, description, photo, owner, phone/email and example flag.
+## Run and check
+Use Node 24+ and npm ci. Run npm run check for TypeScript and regression tests, and npm run build for the production Worker. See OPERATIONS.md for local database migrations, preview authentication, review access, limits and publishing.
 
-`photo` is currently an Unsplash photo identifier; replace the `photo()` helper in `dist/app.js` if hosting your own images. Do not represent these illustrative photographs as actual property photographs.
+The current operator allowlist uses derrickainebyoona032@gmail.com, checked against Sites' authenticated identity on the server. No passwords or secrets are stored in this repository.
 
-Set `example:false` only for real listings. Supply a phone in international E.164 format (starting +256 for Uganda) and/or a valid owner email. Real records with no valid contact remain unavailable for enquiry. Confirm the owner's permission to publish their contact details. There is no self-service owner submission or backend in this release; the operator updates and deploys the data file.
+## Deployment
+Preserve the existing public Sites project declared in .openai/hosting.json. This version requires a Worker, DB and BUCKET bindings; a static-only deployment does not support submissions. Sites handles hosted authentication and provisions storage during publication.
 
-## Verification
-JavaScript syntax checks passed. Logic checks passed for location, budget, empty results, saved homes, detail route, blocked example contact, valid WhatsApp/call links and rejected invalid phone values. Browser checks confirmed search and property details. Actual delivery to an owner has not been tested because no real contacts were supplied. Browser preview loaded successfully after its initial navigation timeout. Full mobile visual QA has not been completed.
+Source-access credentials returned expired during this work, so a live deployment has not been verified. Use the supported Sites workflow after source access is repaired; never bypass credential validation.
 
-## Publishing status
-The existing public Sites project is retained in `.openai/hosting.json`. No deployment or source sync completed: Sites returned already-expired source credentials twice. The helper rejected the credential before any repository access. Credential expiry returned about 2026-10-19 18:42 UTC while the local clock was about 2026-10-20 03:32 UTC. A fresh valid credential is required to open the existing source repository, reconcile this implementation with any existing source, package and deploy through the Sites workflow. Do not bypass credential validation.
-
-For another static host, publish the contents of `dist/`. No build step or secrets are required. Keep the example labels until all example listings are replaced. Remove the static preview/demo labels in index.html when the directory contains actual listings only.
-
-External resources: Unsplash images and Google Fonts load over the network; system font fallbacks are provided. Replace with approved local assets if desired before launch.
+## First real property
+No real property was added. Supply owner-approved facts and photographs later, or submit them through the self-service form once the full-stack deployment is live. Keep example labels on fictional records. External Unsplash photos are illustrative and must not stand in for actual property photos.
